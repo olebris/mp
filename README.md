@@ -9,6 +9,7 @@ assessment to apply for 'lead python dev' job: _MFI_.
 * [Requirements](#requirements)
 * [Build Image](#build-image)
 * [Run Demo](#run-demo)
+* [Settings](#settings)
 * [Contact](#contact)
 
 
@@ -50,8 +51,9 @@ CRUD operations on mountain peaks and listing of peaks inside a bounding box
 > # REPOSITORY   TAG       IMAGE ID       CREATED              SIZE
 > # mp           1.0.0     ...            ...                  ...
 > ```
-> **NB**: <p> _this image can be pushed to a private/public image repository(f.e. <a href="https://hub.docker.com/search?q=">docker hub</a>) to be pulled later at deployment
-> otherwise this building step is required before each deployment if local image is not available._</p>
+
+**NB**: 
+_this image can be pushed to a private/public image repository(f.e. <a href="https://hub.docker.com/search?q=">docker hub</a>) to be pulled later at deployment otherwise this building step is required before each deployment if local image is not available._</p>
 
 
 ## Run Demo
@@ -71,7 +73,32 @@ CRUD operations on mountain peaks and listing of peaks inside a bounding box
 > ```
 > **NB**: <p>_the docker-compose.dev.yml declares an extra service(adminer) that makes it easy to observe database changes
 > due to API calls_</p>
-3. open a browser tab and navigate to http://localhost:8000/swagger:
-![swagger screenshot](./images/mp.png)
+3. open a browser tab and navigate to http://localhost:8000/swagger
+
+
+## Settings
+- the .env file lists the API settings
+```
+DATABASE_URL = "postgresql+psycopg2://mp:s3kr3t!@db/peaks"
+# 1. !!! production environment: this URL must be encrypted !!!
+# 2. (mp,          ,'s3kr3t!'         , db           and peaks) maps respectively to 
+#    (POSTGRES_USER, POSTGRES_PASSWORD, service name and POSTGRES_DB) in docker-compose files
+
+ECHO_SQL = False # True/False whether to log SQL queries or Not
+DEV_MODE = False # controls reloading code when changed
+```
+- the API service in docker-compose files can be customized with a set of environment variables
+```
+  mp:
+    image: mp:1.0.0
+    restart: always
+    environment:
+      UVICORN_WORKER: <number of workers: defaults to 1 + 2 * 'cpu number'
+      UVICORN_PORT: <port: defaults to 8000>
+    ports:
+      - 8000:8000
+```
+
+
 ## Contact
 Developed by [Mohamed Ben Thabet](mailto:mohamed.ben.thabet.teams@outlook.com)
