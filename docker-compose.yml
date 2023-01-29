@@ -13,7 +13,7 @@ services:
       - db-data:/var/lib/postgresql/data
 
   mp:
-    image: mp:0.2.0
+    image: mp:1.0.0
     restart: always
     environment:
       UVICORN_WORKER: 5
