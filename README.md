@@ -1,7 +1,5 @@
 # mp
-> ReST API for storing and retrieving moutain peaks.
-
-assessment to apply for 'lead python dev' job: _MFI_.
+> ReST API for storing and retrieving moutain peaks(demo for assessment)
 
 ## Table of Contents
 * [General Info](#general-information)
