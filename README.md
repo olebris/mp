@@ -54,5 +54,24 @@ CRUD operations on mountain peaks and listing of peaks inside a bounding box
 > otherwise this building step is required before each deployment if local image is not available._</p>
 
 
+## Run Demo
+1. start services using docker compose plugin
+> ```bash
+> # shell
+> docker compose -f docker-compose.yml up
+> ```
+2. check services are running, look for api(mp:1.0.0 as image) container and a postgres container(postgres as image)
+> ```bash
+> # shell
+> docker ps
+> # output:
+> # CONTAINER ID   IMAGE     COMMAND   CREATED  STATUS   PORTS                    NAMES
+> # ...            mp:1.0.0  ...       ...      ...      0.0.0.0:8000->8000/tcp   mp-mp-...
+> # ...            postgres  ...       ...      ...      0.0.0.0:5432->5432/tcp   mp-db-...
+> ```
+> **NB**: <p>_the docker-compose.dev.yml declares an extra service(adminer) that makes it easy to observe database changes
+> due to API calls_</p>
+3. open a browser tab and navigate to http://localhost:8000/swagger:
+![swagger screenshot](./images/mp.png)
 ## Contact
 Developed by [Mohamed Ben Thabet](mailto:mohamed.ben.thabet.teams@outlook.com)
