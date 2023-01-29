@@ -6,6 +6,7 @@ assessment to apply for 'lead python dev' job: _MFI_.
 ## Table of Contents
 * [General Info](#general-information)
 * [Dependencies](#dependencies)
+* [Requirements](#requirements)
 * [Contact](#contact)
 
 
@@ -20,6 +21,11 @@ CRUD operations on mountain peaks and listing of peaks inside a bounding box
 - python-dotenv - version: 0.21.1
 - psycopg2-binary - version: 2.9.5
 
+
+## Requirements
+- python 3.10
+- <a href="https://docs.docker.com/engine/install/">docker-ce</a>
+- <a href="https://docs.docker.com/compose/install/linux/">docker compose plugin</a>
 
 ## Contact
 Developed by [Mohamed Ben Thabet](mailto:mohamed.ben.thabet.teams@outlook.com)
