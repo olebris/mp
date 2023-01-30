@@ -73,10 +73,13 @@ _this image can be pushed to a private/public image repository(f.e. <a href="htt
 > **NB**: <p>_the docker-compose.dev.yml declares an extra service(adminer) that makes it easy to observe database changes
 > due to API calls_</p>
 3. open a browser tab and navigate to http://localhost:8000/swagger
+4. you can use the swagger to interact with the API, the mountain peaks are persisted across services restarts.
+> the /peaks/retrieve endpoint accepts two extra query params 'skip' and 'limit' to paginate fetched moutain peaks
+> - skip: how many peaks to skip before rendering result
+> - limit: how much peaks to include in result
 
-
-## Run Demo
-shutdown gracefully the services
+## Shutdown
+gracefully shutdown the services:
 > ```bash
 > # shell
 > docker compose -f docker-compose.yml down
