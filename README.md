@@ -83,9 +83,9 @@ DATABASE_URL = "postgresql+psycopg2://mp:s3kr3t!@db/peaks"
 #    (POSTGRES_USER, POSTGRES_PASSWORD, service name and POSTGRES_DB) in docker-compose files
 
 ECHO_SQL = False # True/False whether to log SQL queries or Not
-DEV_MODE = False # controls reloading code when changed
 ```
-- the API service in docker-compose files can be customized with a set of environment variables
+- the API service in docker-compose files recognizes a set of environment variables:
+UVICORN_HOST, UVICORN_WORKER and UVICORN_PORT
 ```
   mp:
     image: mp:1.0.0
