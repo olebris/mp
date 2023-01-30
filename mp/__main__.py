@@ -9,12 +9,10 @@ def one_master_process_and_for_each_cpu_two_workers():
 UVICORN_HOST = getenv("UVICORN_HOST", "0.0.0.0")
 UVICORN_PORT = int(getenv("UVICORN_PORT", 8000))
 UVICORN_WORKER = int(getenv("UVICORN_WORKER", one_master_process_and_for_each_cpu_two_workers()))
-DEV_MODE = bool(getenv("DEV_MODE", False))
 
 run(
     "mp:app",
     host=UVICORN_HOST,
     port=UVICORN_PORT,
-    reload=DEV_MODE,
     workers=UVICORN_WORKER
 )
