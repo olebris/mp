@@ -7,6 +7,7 @@
 * [Requirements](#requirements)
 * [Build Image](#build-image)
 * [Run Demo](#run-demo)
+* [Shutdown](#shutdown)
 * [Settings](#settings)
 * [Contact](#contact)
 
@@ -72,6 +73,14 @@ _this image can be pushed to a private/public image repository(f.e. <a href="htt
 > **NB**: <p>_the docker-compose.dev.yml declares an extra service(adminer) that makes it easy to observe database changes
 > due to API calls_</p>
 3. open a browser tab and navigate to http://localhost:8000/swagger
+
+
+## Run Demo
+shutdown gracefully the services
+> ```bash
+> # shell
+> docker compose -f docker-compose.yml down
+> ```
 
 
 ## Settings
