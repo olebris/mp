@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: mp
+      POSTGRES_DB: peaks
+      POSTGRES_PASSWORD: s3kr3t!
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  mp:
+    image: mp:1.0.0
+    restart: always
+    environment:
+      UVICORN_WORKER: 5
+    ports:
+      - 8000:8000
+
+volumes:
+  db-data:
+    driver: local
